@@ -2,7 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import AvisosList from "../pages/avisos/AvisosList";
+import AvisosList from "../pages/auth/AvisosList";
 import AvisoDetalhe from "../pages/avisos/AvisoDetalhe";
 
 const Stack = createNativeStackNavigator();
