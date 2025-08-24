@@ -7,6 +7,8 @@ import AvisoDetalhe from "../pages/avisos/AvisoDetalhe";
 import PedidosReserva from "../pages/sindico/PedidosReserva";
 import TelaInicial from "../pages/TelaInicial";
 import SindicoList from "../pages/sindico/SindicoList";
+import Reserva from "../pages/reserva/Reserva";
+import MinhasReservas from "../pages/reserva/MinhasReservas";
 
 const Stack = createNativeStackNavigator();
 
