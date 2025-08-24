@@ -1,6 +1,6 @@
 import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
-import AvisoItem from "../avisos/AvisoItem";
+import AvisoItem from "../../components/AvisoItem"; // Importando o novo componente
 
 const avisos = [
   { id: "1", titulo: "Manutenção na piscina", descricao: "A piscina ficará fechada para manutenção no sábado." },

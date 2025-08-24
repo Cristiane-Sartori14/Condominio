@@ -1,6 +1,5 @@
 import React from "react";
-import { View, FlatList, StyleSheet } from "react-native";
-import AvisoItem from "../avisos/AvisoItem";
+import { View, Text, FlatList, TouchableOpacity, StyleSheet } from "react-native";
 
 const avisos = [
   { id: "1", titulo: "Manutenção na piscina", descricao: "A piscina ficará fechada para manutenção no sábado." },
@@ -8,20 +7,18 @@ const avisos = [
 ];
 
 export default function AvisosList({ navigation }) {
-  const handlePressItem = (item) => {
-    navigation.navigate("AvisoDetalhe", { aviso: item });
-  };
-
   return (
     <View style={styles.container}>
       <FlatList
         data={avisos}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <AvisoItem
-            aviso={item}
-            onPress={() => handlePressItem(item)}
-          />
+          <TouchableOpacity
+            style={styles.item}
+            onPress={() => navigation.navigate("AvisoDetalhe", { aviso: item })}
+          >
+            <Text style={styles.titulo}>{item.titulo}</Text>
+          </TouchableOpacity>
         )}
       />
     </View>
@@ -30,4 +27,6 @@ export default function AvisosList({ navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 16, backgroundColor: "#fff" },
+  item: { padding: 16, borderBottomWidth: 1, borderBottomColor: "#ccc" },
+  titulo: { fontSize: 18, fontWeight: "bold" },
 });
