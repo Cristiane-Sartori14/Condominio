@@ -1,4 +1,3 @@
-import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { MaterialIcons, FontAwesome5, Feather } from "@expo/vector-icons";
 
@@ -9,7 +8,9 @@ export default function TelaInicial({ navigation }) {
       <MenuItem
         icon={<MaterialIcons name="event" size={24} color="#444" />}
         label="Reservas"
-        onPress={() => {}}
+        onPress={() => {
+          navigation.navigate("CalendarioDeReservas");
+        }}
       />
       <MenuItem
         icon={<Feather name="bell" size={24} color="#444" />}

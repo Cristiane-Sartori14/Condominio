@@ -1,4 +1,3 @@
-import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -16,11 +15,41 @@ export default function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="TelaInicial">
-        <Stack.Screen name="TelaInicial" component={TelaInicial} options={{ title: "Inicio" }} />
-        <Stack.Screen name="AvisosList" component={AvisosList} options={{ title: "Avisos" }} />
-        <Stack.Screen name="AvisoDetalhe" component={AvisoDetalhe} options={{ title: "Detalhe do Aviso" }} />
-        <Stack.Screen name="SindicoList" component={SindicoList} options={{ title: "Síndico" }} />
-        <Stack.Screen name="PedidosReserva" component={PedidosReserva} options={{ title: "Síndico" }} />
+        <Stack.Screen
+          name="TelaInicial"
+          component={TelaInicial}
+          options={{ title: "Inicio" }}
+        />
+        <Stack.Screen
+          name="AvisosList"
+          component={AvisosList}
+          options={{ title: "Avisos" }}
+        />
+        <Stack.Screen
+          name="AvisoDetalhe"
+          component={AvisoDetalhe}
+          options={{ title: "Detalhe do Aviso" }}
+        />
+        <Stack.Screen
+          name="SindicoList"
+          component={SindicoList}
+          options={{ title: "Síndico" }}
+        />
+        <Stack.Screen
+          name="PedidosReserva"
+          component={PedidosReserva}
+          options={{ title: "Síndico" }}
+        />
+        <Stack.Screen
+          name="CalendarioDeReservas"
+          component={Reserva}
+          options={{ title: "Calendário de Reservas" }}
+        />
+        <Stack.Screen
+          name="MinhasReservas"
+          component={MinhasReservas}
+          options={{ title: "Minhas Reservas" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
