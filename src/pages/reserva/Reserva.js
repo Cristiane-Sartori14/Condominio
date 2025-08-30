@@ -10,6 +10,7 @@ import {
   TextInput,
   Modal,
   Dimensions,
+  Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Calendar, LocaleConfig } from "react-native-calendars";
@@ -18,7 +19,8 @@ import { useRoute } from "@react-navigation/native";
 import Button from "../../components/Button";
 import { Picker } from "@react-native-picker/picker";
 import { dias, diasAbreviado, meses, mesesAbreviado } from "./LocaleBrasil";
-import { formatarData } from "../../utils/formatarData";
+import { formatarData } from "../../utils/FormatarData";
+import { useReserva } from "../contexts/ReservaContext";
 
 const { height } = Dimensions.get("window");
 
@@ -35,6 +37,7 @@ export default function Reserva() {
     "2025-09-01",
   ]);
   const navigation = useNavigation();
+  const { adicionarReserva } = useReserva();
 
   useEffect(() => {
     const today = new Date().toISOString().split("T")[0];
@@ -77,6 +80,10 @@ export default function Reserva() {
   LocaleConfig.defaultLocale = "br";
 
   function handleDayPress(day) {
+    if (ocupados.includes(day.dateString)) {
+      Alert.alert("Indisponível", "Esse dia já está reservado.");
+      return;
+    }
     setSelected(day.dateString);
     setVisible(true);
   }
@@ -93,7 +100,49 @@ export default function Reserva() {
 
     return formatted;
   };
-  const handleReservar = () => {};
+
+  const handleReservar = () => {
+    if (!inicio || !fim || !local) {
+      Alert.alert("Atenção", "Preencha todos os campos antes de reservar.");
+      return;
+    }
+
+    const horaRegex = /^([01]\d|2[0-3]):([0-5]\d)$/;
+    if (!horaRegex.test(inicio) || !horaRegex.test(fim)) {
+      Alert.alert("Atenção", "Informe horários válidos no formato HH:MM.");
+      return;
+    }
+
+    if (inicio >= fim) {
+      Alert.alert("Atenção", "O horário final deve ser maior que o inicial.");
+      return;
+    }
+
+    if (local === "") {
+      Alert.alert("Atenção", "Selecione um local para reservar.");
+      return;
+    }
+
+    adicionarReserva({
+      status: "Aguardando",
+      data: formatarData(selected),
+      inicio,
+      fim,
+      local,
+    });
+
+    Alert.alert("Reserva salva com sucesso!");
+    setVisible(false);
+    handleLimparCampos();
+  };
+
+  const handleLimparCampos = () => {
+    setInicio("");
+    setFim("");
+    setLocal("");
+    setSelected(null);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Calendar
@@ -121,7 +170,7 @@ export default function Reserva() {
             activeOpacity={1}
             onPressOut={() => {
               setVisible(false);
-              setSelected(null);
+              handleLimparCampos();
             }}
           >
             <View style={styles.modal}>
@@ -174,9 +223,9 @@ export default function Reserva() {
                   onValueChange={(itemValue) => setLocal(itemValue)}
                 >
                   <Picker.Item label="Selecione" value="" />
-                  <Picker.Item label="Quadra" value="quadra" />
-                  <Picker.Item label="Salão" value="salao" />
-                  <Picker.Item label="Churrasqueira" value="churrasqueira" />
+                  <Picker.Item label="Quadra" value="Quadra" />
+                  <Picker.Item label="Salão" value="Salão" />
+                  <Picker.Item label="Churrasqueira" value="Churrasqueira" />
                 </Picker>
               </View>
               <View style={styles.reservarButton}>

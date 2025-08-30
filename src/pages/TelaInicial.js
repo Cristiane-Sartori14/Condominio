@@ -18,11 +18,6 @@ export default function TelaInicial({ navigation }) {
         onPress={() => navigation.navigate("AvisosList")}
       />
       <MenuItem
-        icon={<FontAwesome5 name="box" size={24} color="#444" />}
-        label="Encomendas"
-        onPress={() => {}}
-      />
-      <MenuItem
         icon={<FontAwesome5 name="user-friends" size={24} color="#444" />}
         label="Visitantes"
         onPress={() => {}}

@@ -29,7 +29,7 @@ export default function AppNavigator() {
         <Stack.Screen
           name="TelaInicial"
           component={TelaInicial}
-          options={{ title: "Inicio" }}
+          options={{ title: "Início" }}
         />
         <Stack.Screen
           name="AvisosList"

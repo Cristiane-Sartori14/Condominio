@@ -7,28 +7,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useReserva } from "../contexts/ReservaContext";
 
 export default function ReservasList() {
-  const [reservas, setReservas] = useState([
-    {
-      id: "1",
-      data: "12/08",
-      horario: "10:00-13:00",
-      local: "Quadra",
-      status: "Aprovada",
-    },
-    {
-      id: "2",
-      data: "12/08",
-      horario: "19:00-20:00",
-      local: "Salão de Festas",
-      status: "Aguardando",
-    },
-  ]);
-
-  const handleDelete = (id) => {
-    setReservas((prev) => prev.filter((r) => r.id !== id));
-  };
+  const { reservas, removerReserva } = useReserva();
 
   const renderItem = ({ item }) => (
     <View style={styles.card}>
@@ -44,7 +26,9 @@ export default function ReservasList() {
             ]}
           />
           <Text style={styles.data}>{item.data}</Text>
-          <Text style={styles.horario}>{item.horario}</Text>
+          <Text style={styles.horario}>
+            {item.inicio}-{item.fim}
+          </Text>
         </View>
 
         <View
@@ -69,7 +53,7 @@ export default function ReservasList() {
       <View style={styles.row}>
         <Text style={styles.local}>{item.local}</Text>
 
-        <TouchableOpacity onPress={() => handleDelete(item.id)}>
+        <TouchableOpacity onPress={() => removerReserva(item.id)}>
           <MaterialCommunityIcons name="delete" size={24} color="red" />
         </TouchableOpacity>
       </View>
