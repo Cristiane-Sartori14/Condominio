@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
+  Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -15,9 +16,14 @@ export default function CriarAviso() {
   const [data, setData] = useState("");
   const [assunto, setAssunto] = useState("");
   const [mensagem, setMensagem] = useState("");
+  const [avisos, setAvisos] = useState([]);
 
   const handlePublicar = () => {
-    console.log({ data, assunto, mensagem });
+    Alert.alert("Aviso Criado!");
+    setAvisos([...avisos, { data, assunto, mensagem }]);
+    setData("");
+    setMensagem("");
+    setAssunto("");
   };
 
   return (

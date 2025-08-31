@@ -19,6 +19,7 @@ import CadastrarPrestadorServico from "../pages/cadastro/CadastrarPrestadorServi
 import RecuperarSenha from "../pages/cadastro/RecuperarSenha";
 import RecuperarSenha2 from "../pages/cadastro/RecuperarSenha2";
 import RecuperarSenha3 from "../pages/cadastro/RecuperarSenha3";
+import CriarAviso from "../pages/avisos/CriarAviso";
 
 const Stack = createNativeStackNavigator();
 
@@ -115,7 +116,12 @@ export default function AppNavigator() {
           name="RecuperarSenha3"
           component={RecuperarSenha3}
           options={{ title: "Recuperar senha" }}
-        />                
+        />
+        <Stack.Screen
+          name="CriarAviso"
+          component={CriarAviso}
+          options={{ title: "Criar Aviso" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
