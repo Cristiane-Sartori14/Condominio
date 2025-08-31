@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { 
-  View, 
-  Text, 
-  TextInput, 
-  TouchableOpacity, 
-  StyleSheet, 
-  SafeAreaView, 
-  ScrollView 
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
 } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
@@ -16,24 +16,19 @@ export default function BoasVindas({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-    
-    <KeyboardAwareScrollView 
-     contentContainerStyle={styles.scroll}
-      enableOnAndroid={true}
-      extraScrollHeight={20}
-      keyboardShouldPersistTaps="handled"
-    >
-
-        {/* Logo / Nome */}
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.scroll}
+        enableOnAndroid={true}
+        extraScrollHeight={20}
+        keyboardShouldPersistTaps="handled"
+      >
         <Text style={styles.logo}>ConectaCondo</Text>
 
-        {/* Boas vindas */}
         <Text style={styles.titulo}>Boas vindas</Text>
         <Text style={styles.subtitulo}>
           Insira o endereço de e-mail associado à sua organização
         </Text>
 
-        {/* Campo de Login */}
         <Text style={styles.label}>Login</Text>
         <TextInput
           style={styles.input}
@@ -44,7 +39,6 @@ export default function BoasVindas({ navigation }) {
           keyboardType="email-address"
         />
 
-        {/* Campo de Senha */}
         <Text style={styles.label}>Senha</Text>
         <TextInput
           style={styles.input}
@@ -55,29 +49,27 @@ export default function BoasVindas({ navigation }) {
           onChangeText={setSenha}
         />
 
-        {/* Esqueci a senha */}
         <TouchableOpacity onPress={() => navigation.navigate("RecuperarSenha")}>
           <Text style={styles.linkSenha}>Esqueci a senha</Text>
         </TouchableOpacity>
 
-        {/* Botão Entrar */}
-        <TouchableOpacity style={styles.botao} 
-        onPress={() => navigation.navigate("TelaInicial")}>
-        <Text style={styles.textoBotao}>Entrar</Text>
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => navigation.navigate("TelaInicial")}
+        >
+          <Text style={styles.textoBotao}>Entrar</Text>
         </TouchableOpacity>
 
-        {/* Solicitar acesso */}
         <Text style={styles.textoRodape}>
           Não possui conta?{" "}
-        <Text 
-          style={styles.link} 
-          onPress={() => navigation.navigate("EscolherCadastro")}
+          <Text
+            style={styles.link}
+            onPress={() => navigation.navigate("EscolherCadastro")}
           >
-          Solicitar acesso
+            Solicitar acesso
+          </Text>
         </Text>
-
-        </Text>
-    </KeyboardAwareScrollView>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 }

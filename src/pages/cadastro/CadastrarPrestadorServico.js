@@ -31,7 +31,7 @@ export default function CadastrarVisitanteRecorrente({ navigation }) {
     <KeyboardAvoidingView
       style={{ flex: 1 }}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={80} // ajusta distância do teclado
+      keyboardVerticalOffset={80}
     >
       <ScrollView
         contentContainerStyle={styles.container}
@@ -56,7 +56,9 @@ export default function CadastrarVisitanteRecorrente({ navigation }) {
           onChangeText={setDocumento}
         />
 
-        <Text style={styles.label}>Unidade visitada (Apartamento + Bloco/Torre)</Text>
+        <Text style={styles.label}>
+          Unidade visitada (Apartamento + Bloco/Torre)
+        </Text>
         <TextInput
           style={styles.input}
           placeholder="Ex: Apto 101 - Bloco B"

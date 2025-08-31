@@ -5,15 +5,12 @@ import { Ionicons } from "@expo/vector-icons";
 export default function CadastrarTipoVisitante({ navigation }) {
   return (
     <View style={styles.container}>
-      {/* Logo */}
       <Text style={styles.logo}>ConectaCondo</Text>
 
-      {/* Título */}
       <Text style={styles.titulo}>Tipo de visitante:</Text>
 
-      {/* Opção Visitante recorrente */}
-      <TouchableOpacity 
-        style={styles.item} 
+      <TouchableOpacity
+        style={styles.item}
         onPress={() => navigation.navigate("CadastrarVisitanteRecorrente")}
       >
         <View style={styles.itemLeft}>
@@ -23,9 +20,8 @@ export default function CadastrarTipoVisitante({ navigation }) {
         <Ionicons name="chevron-forward" size={20} color="black" />
       </TouchableOpacity>
 
-      {/* Opção Visitante pontual */}
-      <TouchableOpacity 
-        style={styles.item} 
+      <TouchableOpacity
+        style={styles.item}
         onPress={() => navigation.navigate("CadastrarVisitantePontual")}
       >
         <View style={styles.itemLeft}>
@@ -35,9 +31,8 @@ export default function CadastrarTipoVisitante({ navigation }) {
         <Ionicons name="chevron-forward" size={20} color="black" />
       </TouchableOpacity>
 
-      {/* Opção Prestador de serviço */}
-      <TouchableOpacity 
-        style={styles.item} 
+      <TouchableOpacity
+        style={styles.item}
         onPress={() => navigation.navigate("CadastrarPrestadorServico")}
       >
         <View style={styles.itemLeft}>
@@ -47,9 +42,8 @@ export default function CadastrarTipoVisitante({ navigation }) {
         <Ionicons name="chevron-forward" size={20} color="black" />
       </TouchableOpacity>
 
-      {/* Botão voltar */}
-      <TouchableOpacity 
-        style={styles.botaoVoltar} 
+      <TouchableOpacity
+        style={styles.botaoVoltar}
         onPress={() => navigation.goBack()}
       >
         <Ionicons name="arrow-back-outline" size={28} color="black" />

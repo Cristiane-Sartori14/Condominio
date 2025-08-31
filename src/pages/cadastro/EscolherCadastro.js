@@ -1,25 +1,22 @@
 import React from "react";
-import { 
-  View, 
-  Text, 
-  TouchableOpacity, 
-  StyleSheet, 
-  SafeAreaView 
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function EscolherCadastro({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
-      {/* Logo */}
       <Text style={styles.logo}>ConectaCondo</Text>
 
-      {/* Título */}
       <Text style={styles.titulo}>Gostaria de cadastrar:</Text>
 
-      {/* Opção Morador */}
-      <TouchableOpacity 
-        style={styles.item} 
+      <TouchableOpacity
+        style={styles.item}
         onPress={() => navigation.navigate("CadastrarMorador")}
       >
         <View style={styles.itemLeft}>
@@ -29,9 +26,8 @@ export default function EscolherCadastro({ navigation }) {
         <Ionicons name="chevron-forward" size={20} color="black" />
       </TouchableOpacity>
 
-      {/* Opção Síndico */}
-      <TouchableOpacity 
-        style={styles.item} 
+      <TouchableOpacity
+        style={styles.item}
         onPress={() => navigation.navigate("CadastrarSindico")}
       >
         <View style={styles.itemLeft}>
@@ -41,9 +37,8 @@ export default function EscolherCadastro({ navigation }) {
         <Ionicons name="chevron-forward" size={20} color="black" />
       </TouchableOpacity>
 
-      {/* Opção Visitante */}
-      <TouchableOpacity 
-        style={styles.item} 
+      <TouchableOpacity
+        style={styles.item}
         onPress={() => navigation.navigate("CadastrarTipoVisitante")}
       >
         <View style={styles.itemLeft}>
@@ -53,9 +48,8 @@ export default function EscolherCadastro({ navigation }) {
         <Ionicons name="chevron-forward" size={20} color="black" />
       </TouchableOpacity>
 
-      {/* Voltar */}
-      <TouchableOpacity 
-        style={styles.botaoVoltar} 
+      <TouchableOpacity
+        style={styles.botaoVoltar}
         onPress={() => navigation.goBack()}
       >
         <Ionicons name="arrow-back-outline" size={24} color="black" />

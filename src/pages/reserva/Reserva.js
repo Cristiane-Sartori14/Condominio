@@ -15,11 +15,10 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { Calendar, LocaleConfig } from "react-native-calendars";
 import { useEffect, useState } from "react";
-import { useRoute } from "@react-navigation/native";
 import Button from "../../components/Button";
 import { Picker } from "@react-native-picker/picker";
 import { dias, diasAbreviado, meses, mesesAbreviado } from "./LocaleBrasil";
-import { formatarData } from "../../utils/FormatarData";
+import { formatarData } from "../../utils/formatarData";
 import { useReserva } from "../contexts/ReservaContext";
 
 const { height } = Dimensions.get("window");

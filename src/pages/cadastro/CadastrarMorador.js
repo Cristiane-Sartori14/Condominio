@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { 
-  View, 
-  Text, 
-  TextInput, 
-  TouchableOpacity, 
-  StyleSheet, 
-  SafeAreaView 
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
 } from "react-native";
 import { Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
@@ -22,30 +22,24 @@ export default function CadastrarMorador({ navigation }) {
   const [senha, setSenha] = useState("");
 
   const handleCadastro = () => {
-  Alert.alert(
-      "Sucesso",
-      "Morador cadastrado com sucesso!",
-      [
-       {
-           text: "OK",
-           onPress: () => navigation.navigate("TelaInicial"),
-       },
-      ]
-    );
-   };
+    Alert.alert("Sucesso", "Morador cadastrado com sucesso!", [
+      {
+        text: "OK",
+        onPress: () => navigation.navigate("TelaInicial"),
+      },
+    ]);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAwareScrollView 
-        contentContainerStyle={styles.scroll} 
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.scroll}
         enableOnAndroid={true}
         extraScrollHeight={20}
       >
-        {/* Logo */}
         <Text style={styles.logo}>ConectaCondo</Text>
         <Text style={styles.titulo}>Cadastro de morador</Text>
 
-        {/* Nome */}
         <Text style={styles.label}>Nome completo</Text>
         <TextInput
           style={styles.input}
@@ -54,7 +48,6 @@ export default function CadastrarMorador({ navigation }) {
           onChangeText={setNome}
         />
 
-        {/* Apartamento e Bloco */}
         <View style={styles.row}>
           <View style={styles.col}>
             <Text style={styles.label}>Apartamento</Text>
@@ -76,7 +69,6 @@ export default function CadastrarMorador({ navigation }) {
           </View>
         </View>
 
-        {/* Telefone e Nascimento */}
         <View style={styles.row}>
           <View style={styles.col}>
             <Text style={styles.label}>Telefone</Text>
@@ -99,7 +91,6 @@ export default function CadastrarMorador({ navigation }) {
           </View>
         </View>
 
-        {/* Situação */}
         <Text style={styles.label}>Situação</Text>
         <TextInput
           style={styles.input}
@@ -108,7 +99,6 @@ export default function CadastrarMorador({ navigation }) {
           onChangeText={setSituacao}
         />
 
-        {/* E-mail */}
         <Text style={styles.label}>E-mail</Text>
         <TextInput
           style={styles.input}
@@ -118,7 +108,6 @@ export default function CadastrarMorador({ navigation }) {
           keyboardType="email-address"
         />
 
-        {/* Senha */}
         <Text style={styles.label}>Senha</Text>
         <TextInput
           style={styles.input}
@@ -128,16 +117,12 @@ export default function CadastrarMorador({ navigation }) {
           secureTextEntry
         />
 
-        {/* Botão Cadastrar */}
-        <TouchableOpacity 
-        style={styles.botao} 
-        onPress={handleCadastro}>
+        <TouchableOpacity style={styles.botao} onPress={handleCadastro}>
           <Text style={styles.textoBotao}>Cadastrar morador</Text>
         </TouchableOpacity>
 
-        {/* Voltar */}
-        <TouchableOpacity 
-          style={styles.botaoVoltar} 
+        <TouchableOpacity
+          style={styles.botaoVoltar}
           onPress={() => navigation.goBack()}
         >
           <Ionicons name="arrow-back-outline" size={28} color="black" />
